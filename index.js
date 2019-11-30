@@ -53,24 +53,11 @@ function renderItem(newItem){
 // if check is clicked, change class to shopping-item__checked
 // if item is already checked, and needs to be unchecked, get rid of 
 // shopping-item__checked
-function checkClicked(){
-    
+function checkClicked(){ 
     $('ul').on('click','button.shopping-item-toggle',function(e){
         e.stopPropagation();
-        const targetSpan = $(e.currentTarget).closest('li').find('span')
-        targetItemClass = targetSpan.attr('class');
-        console.log(targetItemClass);
-        console.log(targetSpan);
-        console.log(targetSpan[0]);
-        $(this).toggleClass('shopping-item__checked'); 
-        // if(targetItemClass === 'shopping-item shopping-item_checked'){
-            
-        // }            
-        // if(targetItemClass === 'shopping-item'){
-        //     $('targetSpan[0]').toggleClass('shopping-item__checked'); 
-        // }
-        console.log(targetItemClass);
-
+        const targetSpan = $(e.currentTarget).closest('li').find('.shopping-item');
+        $(targetSpan).toggleClass('shopping-item__checked'); 
     });
     // delete any list item, old or new.
     $('ul').on('click','button.shopping-item-delete',function(e){
@@ -78,17 +65,6 @@ function checkClicked(){
         $(this).closest('li').remove();
     });
 }
-    //   <li>
-    //     <span class="shopping-item shopping-item__checked">milk</span>
-    //     <div class="shopping-item-controls">
-    //       <button class="shopping-item-toggle">
-    //         <span class="button-label">check</span>
-    //       </button>
-    //       <button class="shopping-item-delete">
-    //         <span class="button-label">delete</span>
-    //       </button>
-    //     </div>
-    //   </li>}
 
-    $(checkClicked)
-    $(submitItem)
+$(checkClicked)
+$(submitItem)
